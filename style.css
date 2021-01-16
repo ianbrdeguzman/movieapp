@@ -13,16 +13,18 @@ header {
     width: 100vw;
     height: 5vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 2rem 2rem;
+    padding: 2rem 1rem 1rem 1rem;
     background-color: #061328;
 }
 
-header p a {
-    text-decoration: none;
-    color: #345a96;
-    font-size: 1.5rem;
+.logo-container {
+    width: 100px;
+}
+
+#logo {
+    height: 50px;
 }
 
 header p a:hover {
@@ -35,9 +37,9 @@ header p a:hover {
 
 #search {
     border: none;
-    width: 200px;
+    width: 150px;
     height: 40px;
-    padding: 0 2rem;
+    padding: 0 2rem 0 1rem;
     font-family: inherit;
     font-size: 1rem;
     border-radius: 30px;
@@ -51,6 +53,10 @@ header p a:hover {
     position: absolute;
     top: .74rem;
     right: .8rem;
+}
+
+#submit {
+    display: none;
 }
 
 main {
@@ -94,4 +100,33 @@ img {
     padding: 5px 10px;
     
     border-radius: 5px;
+}
+
+footer {
+    width: 100vw;
+    height: 5vh;
+    background-color: #0e2244;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+}
+.about-container p {
+    color: #345a96;
+    margin-right: .3rem;
+}
+
+.about-container p a {
+    text-decoration: none;
+    color: #345a96;
+    font-size: 1.5rem;
+}
+
+.about-container p a:hover {
+    color: red;
 }

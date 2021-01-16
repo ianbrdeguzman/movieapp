@@ -1,22 +1,32 @@
-const apiURL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1';
-const imgPath = 'https://image.tmdb.org/t/p/w1280';
-const searchAPI = 'https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=';
+////////////////////////////
+// THE MOVIE DATABASE API //
+////////////////////////////
+
+const APIKEY = 'b181c6528b36cb661243b22d4a3fd23a';
+const SEARCHAPI = `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&query=`
+const BASE_URL = 'https://image.tmdb.org/t/p/w500';
+const DISCOVER = 'https://api.themoviedb.org/3/discover/movie?api_key=b181c6528b36cb661243b22d4a3fd23a&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1'
 
 
 getMovies();
 
 async function getMovies() {
-    const response = await fetch(apiURL);
+    const response = await fetch(DISCOVER);
     const data = await response.json();
-
+    //console.log(data.results)
     showMovies(data.results);
 }
 
 const showMovies = (data) => {
-   
+    const div = document.body.children[1];
+
+    while (div.firstChild) {
+        div.firstChild.remove();
+    }
+    
     for (let key in data) {
-        const img = imgPath + data[key].poster_path;
-        const title = data[key].original_title;
+        const img = BASE_URL + data[key].poster_path;
+        const title = data[key].title;
         const score = data[key].vote_average;
     
         const item  = 
@@ -30,13 +40,26 @@ const showMovies = (data) => {
                         </div>
                     </div>`
 
-    const div = document.body.children[1];
-
     div.insertAdjacentHTML('beforeend', item);
     }
 }
 
+const searchMovies = async (input) => {
+    const response = await fetch(SEARCHAPI + input);
+    const data = await response.json();
 
+    showMovies(data.results);
+}
 
+document.getElementById('form')
+    .addEventListener('submit', (e) =>{
+
+        
+    
+        const input = document.getElementById('search');
+        searchMovies(input.value);
+        input.value = '';
+        e.preventDefault();
+    })
 
 
