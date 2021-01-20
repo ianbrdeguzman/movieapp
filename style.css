@@ -71,6 +71,7 @@ main {
     display: flex;
     flex-direction: column;
     margin: 2rem 1rem;
+    position: relative;
 }
 
 .image-container {
@@ -102,6 +103,31 @@ img {
     border-radius: 5px;
 }
 
+.overview-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.overview-container:hover {
+    opacity: 1;
+}
+
+.overview-container p {
+    color: #272727;
+    padding: 1rem;
+    text-align: center;
+}
+
 footer {
     width: 100vw;
     height: 5vh;
@@ -112,19 +138,9 @@ footer {
     align-items: center;
 }
 
-.about-container {
-    display: flex;
-    align-items: center;
-}
-.about-container p {
-    color: #345a96;
-    margin-right: .3rem;
-}
-
 .about-container p a {
     text-decoration: none;
     color: #345a96;
-    font-size: 1.5rem;
 }
 
 .about-container p a:hover {
