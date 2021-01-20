@@ -4,3 +4,4 @@ Check it out <a href="https://ianbrdeguzman.github.io/movieapp/">here!</a>
 * HTML5
 * CSS3
 * JavaScript
+* TMDB API
